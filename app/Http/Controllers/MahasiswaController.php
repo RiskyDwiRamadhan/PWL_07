@@ -49,8 +49,7 @@ class MahasiswaController extends Controller
             
         Mahasiswa::create($request->all());
         
-        return redirect()->route('mahasiswa.index')
-        ->with('success', 'Mahasiswa Berhasil Ditambahkan');   
+        return redirect()->route('mahasiswa.index')->with('success', 'Mahasiswa Berhasil Ditambahkan');   
     }
 
     /**
@@ -91,13 +90,12 @@ class MahasiswaController extends Controller
             'Nama' => 'required',
             'Kelas' => 'required',
             'Jurusan' => 'required',
-            'No_Handphone' => 'required',
+            'No_Handphone' => 'required'
             ]);
             
             Mahasiswa::find($Nim)->update($request->all());
             
-            return redirect()->route('mahasiswa.index')
-            ->with('success', 'Mahasiswa Berhasil Diupdate');
+            return redirect()->route('mahasiswa.index')->with('success', 'Mahasiswa Berhasil Diupdate');
     }
 
     /**
@@ -109,7 +107,6 @@ class MahasiswaController extends Controller
     public function destroy( $Nim)
     {
         Mahasiswa::find($Nim)->delete();
-        return redirect()->route('mahasiswa.index')
-        -> with('success', 'Mahasiswa Berhasil Dihapus');
+        return redirect()->route('mahasiswa.index')-> with('success', 'Mahasiswa Berhasil Dihapus');
     }
 }
