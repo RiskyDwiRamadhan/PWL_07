@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left mt-2">
-                <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
+                <h2>jurusan TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
             </div>
             <div class="float-right my-2">
             <a class="btn btnsuccess" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
@@ -19,25 +19,25 @@
 
     <table class="table table-bordered">
         <tr>
-            <th>Nim</th>
-            <th>Nama</th>
-            <th>Kelas</th>
-            <th>Jurusan</th>
-            <th>No_Handphone</th>
+            <th>nim</th>
+            <th>nama</th>
+            <th>kelas</th>
+            <th>jurusan</th>
+            <th>no_hp</th>
             <th width="280px">Action</th>
             </tr>
             @foreach ($mahasiswas as $Mahasiswa)
                 <tr>
-                    <td>{{ $Mahasiswa->Nim }}</td>
-                    <td>{{ $Mahasiswa->Nama }}</td>
-                    <td>{{ $Mahasiswa->Kelas }}</td>
-                    <td>{{ $Mahasiswa->Jurusan }}</td>
-                    <td>{{ $Mahasiswa->No_Handphone }}</td>
+                    <td>{{ $Mahasiswa->nim }}</td>
+                    <td>{{ $Mahasiswa->nama }}</td>
+                    <td>{{ $Mahasiswa->kelas }}</td>
+                    <td>{{ $Mahasiswa->jurusan }}</td>
+                    <td>{{ $Mahasiswa->no_hp }}</td>
                     <td>
-                    <form action="{{ route('mahasiswa.destroy',$Mahasiswa->Nim) }}" method="POST">
+                    <form action="{{ route('mahasiswa.destroy',$Mahasiswa->nim) }}" method="POST">
 
-                    <a class="btn btninfo" href="{{ route('mahasiswa.show',$Mahasiswa->Nim) }}">Show</a>
-                    <a class="btn btnprimary" href="{{ route('mahasiswa.edit',$Mahasiswa->Nim) }}">Edit</a>
+                    <a class="btn btninfo" href="{{ route('mahasiswa.show',$Mahasiswa->nim) }}">Show</a>
+                    <a class="btn btnprimary" href="{{ route('mahasiswa.edit',$Mahasiswa->nim) }}">Edit</a>
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>
