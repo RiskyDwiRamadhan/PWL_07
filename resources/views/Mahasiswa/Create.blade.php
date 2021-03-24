@@ -1,4 +1,4 @@
-@extends('mahasiswas.layout')
+@extends('mahasiswa.layout')
 
 @section('content')
 
