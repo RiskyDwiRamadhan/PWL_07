@@ -6,7 +6,7 @@
                 <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
             </div>
             <div class="float-right my-2">
-            <a class="btn btnsuccess" href="{{ route('mahasiswas.create') }}"> Input Mahasiswa</a>
+            <a class="btn btnsuccess" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
             </div>
         </div>
     </div>
@@ -34,8 +34,7 @@
                     <td>{{ $Mahasiswa->Jurusan }}</td>
                     <td>{{ $Mahasiswa->No_Handphone }}</td>
                     <td>
-                    <form action="{{ route('mahasiswa.destroy',$Mahasiswa-
-                    >Nim) }}" method="POST">
+                    <form action="{{ route('mahasiswa.destroy',$Mahasiswa->Nim) }}" method="POST">
 
                     <a class="btn btninfo" href="{{ route('mahasiswa.show',$Mahasiswa->Nim) }}">Show</a>
                     <a class="btn btnprimary" href="{{ route('mahasiswa.edit',$Mahasiswa->Nim) }}">Edit</a>
