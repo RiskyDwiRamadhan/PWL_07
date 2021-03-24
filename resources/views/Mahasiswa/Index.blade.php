@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left mt-2">
-                <h2>jurusan TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
+                <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
             </div>
             <div class="float-right my-2">
             <a class="btn btnsuccess" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
@@ -19,11 +19,11 @@
 
     <table class="table table-bordered">
         <tr>
-            <th>nim</th>
-            <th>nama</th>
-            <th>kelas</th>
-            <th>jurusan</th>
-            <th>no_hp</th>
+            <th>Nim</th>
+            <th>Nama</th>
+            <th>Kelas</th>
+            <th>Jurusan</th>
+            <th>No_HP</th>
             <th width="280px">Action</th>
             </tr>
             @foreach ($mahasiswas as $Mahasiswa)
