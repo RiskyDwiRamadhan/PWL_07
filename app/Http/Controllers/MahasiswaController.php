@@ -16,7 +16,7 @@ class MahasiswaController extends Controller
     {
         $mahasiswas = Mahasiswa::all(); 
         $posts = Mahasiswa::orderBy('Nim', 'desc')->paginate(6);
-        return view('mahasiswa.index', compact('mahasiswa'));
+        return view('mahasiswa.index', compact('mahasiswas'));
         with('i', (request()->input('page', 1) - 1) * 5);
 
     }
