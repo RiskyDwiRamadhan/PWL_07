@@ -74,7 +74,7 @@ class MahasiswaController extends Controller
     public function edit($Nim)
     {
         $Mahasiswa = Mahasiswa::find($Nim);
-        return view('mahasiswas.edit', compact('Mahasiswa'));
+        return view('mahasiswa.edit', compact('Mahasiswa'));
     }
 
     /**
@@ -109,7 +109,7 @@ class MahasiswaController extends Controller
     public function destroy( $Nim)
     {
         Mahasiswa::find($Nim)->delete();
-        return redirect()->route('mahasiswas.index')
+        return redirect()->route('mahasiswa.index')
         -> with('success', 'Mahasiswa Berhasil Dihapus');
     }
 }
