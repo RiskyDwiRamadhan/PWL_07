@@ -5,6 +5,20 @@
             <div class="pull-left mt-2">
                 <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
             </div>
+            
+            <!-- Form Search -->
+            <div class="float-left my-2">
+                <form action="{{ route('mahasiswa.index') }}" method="GET">
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" name="search" placeholder="Search...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="submit"><i class="fa fa-search"></i> Cari</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <!-- End Form Search -->
+
             <div class="float-right my-2">
             <a class="btn btn-success" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
             </div>
