@@ -14,11 +14,18 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mahasiswas = Mahasiswa::all(); 
-        $posts = Mahasiswa::orderBy('Nim', 'desc')->paginate(6);
-        return view('mahasiswa.index', compact('mahasiswas'));
-        with('i', (request()->input('page', 1) - 1) * 5);
-
+        // $mahasiswas = Mahasiswa::all(); 
+        // $posts = Mahasiswa::orderBy('Nim', 'desc')->paginate(6);
+        // return view('mahasiswa.index', compact('mahasiswas'));
+        // with('i', (request()->input('page', 1) - 1) * 5);
+        
+        if($request->has('search')){ // Pemilihan jika ingin melakukan pencarian nama
+            $mahasiswas = Mahasiswa::where('Nama', 'like', "%".$request->search."%")->paginate(5);
+        } else { // Pemilihan jika tidak melakukan pencarian nama
+            //fungsi eloquent menampilkan data menggunakan pagination
+            $mahasiswas = Mahasiswa::paginate(5); // Pagination menampilkan 5 data
+        }
+        return view('users.index', compact('mahasiswas'));
     }
 
     /**
