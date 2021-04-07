@@ -142,4 +142,11 @@ class MahasiswaController extends Controller
         Mahasiswa::find($Nim)->delete();
         return redirect()->route('mahasiswa.index')-> with('success', 'Mahasiswa Berhasil Dihapus');
     }
+
+    public function nilai($nim)
+    {
+        //menampilkan detail data nilai mahasiswa dengan menemukan/berdasarkan Nim Mahasiswa
+        $mahasiswa = Mahasiswa::with('kelas', 'matakuliah')->find($nim);
+        return view('mahasiswa.nilai', compact('mahasiswa'));
+    }
 }
