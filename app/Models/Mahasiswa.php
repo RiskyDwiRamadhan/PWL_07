@@ -27,4 +27,7 @@ class Mahasiswa extends Model
         'no_hp'
     ];
 
+    public function kelas(){
+        return $this->belongsTo(Kelas::class);
+    }
 }
