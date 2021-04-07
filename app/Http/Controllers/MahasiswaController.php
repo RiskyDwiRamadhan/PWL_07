@@ -97,7 +97,7 @@ class MahasiswaController extends Controller
             'Nama' => 'required',
             'Kelas' => 'required',
             'Jurusan' => 'required',
-            'No_Handphone' => 'required'
+            'No_Handphone' => 'required',
             ]);
             
             Mahasiswa::find($Nim)->update($request->all());
