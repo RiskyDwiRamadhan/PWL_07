@@ -83,7 +83,7 @@ class MahasiswaController extends Controller
      */
     public function show($Nim)
     {
-        $Mahasiswa = Mahasiswa::find($Nim);
+        $Mahasiswa = Mahasiswa::with('kelas')->where('nim', $Nim)->first();
         return view('mahasiswa.detail', compact('Mahasiswa'));
     }
 
