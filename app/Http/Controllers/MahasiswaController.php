@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Mahasiswa;
+use App\Models\Kelas;
 
 use Illuminate\Http\Request;
 
@@ -20,12 +21,15 @@ class MahasiswaController extends Controller
         // with('i', (request()->input('page', 1) - 1) * 5);
         
         if($request->has('search')){ // Pemilihan jika ingin melakukan pencarian nama
-            $mahasiswas = Mahasiswa::where('nama', 'like', "%".$request->search."%")->paginate(5);
+            $mahasiswas = Mahasiswa::where('nama', 'like', "%".$request->search."%")->with('kelas')->paginate(5);
         } else { // Pemilihan jika tidak melakukan pencarian nama
             //fungsi eloquent menampilkan data menggunakan pagination
-            $mahasiswas = Mahasiswa::paginate(5); // Pagination menampilkan 5 data
+            $mahasiswas = Mahasiswa::with('kelas')->paginate(5); // Pagination menampilkan 5 data
         }
         return view('mahasiswa.index', compact('mahasiswas'));
+
+        // $mahasiswa = Mahasiswa::with('kelas')->get();   
+        // $
     }
 
     /**
