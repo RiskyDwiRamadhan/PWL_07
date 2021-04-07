@@ -24,7 +24,7 @@ class MahasiswaController extends Controller
             $mahasiswas = Mahasiswa::where('nama', 'like', "%".$request->search."%")->with('kelas')->paginate(5);
         } else { // Pemilihan jika tidak melakukan pencarian nama
             //fungsi eloquent menampilkan data menggunakan pagination
-            $mahasiswas = Mahasiswa::with('kelas')->paginate(5); // Pagination menampilkan 5 data
+            $mahasiswas = Mahasiswa::paginate(5); // Pagination menampilkan 5 data
         }
         return view('mahasiswa.index', compact('mahasiswas'));
 
@@ -39,7 +39,8 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        return view('mahasiswa.create');
+        $kelas = Kelas::all();
+        return view('mahasiswa.create', ['kelas'=>$kelas]);
     }
 
     /**
@@ -51,14 +52,25 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nim' => 'required',
-            'nama' => 'required',
-            'kelas' => 'required',
-            'jurusan' => 'required',
-            'no_hp' => 'required',
+            'Nim' => 'required',
+            'Nama' => 'required',
+            'Kelas' => 'required',
+            'Jurusan' => 'required',
+            'No_Handphone' => 'required',
             ]);
             
-        Mahasiswa::create($request->all());
+        // Mahasiswa::create($request->all());
+        //fungsi eloquent untuk mengambil data kelas dari relation
+        $kelas = Kelas::find($request->get('Kelas'));
+
+        $mahasiswa = new Mahasiswa;
+        $mahasiswa->nim = $request->get('Nim');
+        $mahasiswa->nama = $request->get('Nama');
+        $mahasiswa->jurusan = $request->get('Jurusan');
+        $mahasiswa->no_hp = $request->get('No_Handphone');
+
+        $mahasiswa->kelas()->associate($kelas);
+        $mahasiswa->save(); 
         
         return redirect()->route('mahasiswa.index')->with('success', 'Mahasiswa Berhasil Ditambahkan');   
     }
